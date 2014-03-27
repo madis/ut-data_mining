@@ -1,0 +1,54 @@
+% Data Mining Homework 5
+% Madis Nõmme
+% March 18th, 2014
+
+
+# Task 1 {.unnumbered}
+
+Listen to the presentation by Tamara Munzner: Keynote on Visualization Principles - http://vizbi.org/Videos/26205288. Summarize the key take-home messages from her presentation.
+
+Messages I got:
+
+- Visualization is meant for humans to understand the underlying data better. If your graph does not make data clearer, you need better graph.
+- Choose visual channels (what/where, grouping, how much) to fit the data. Otherwise the visualization can become mis-communicating.
+- Controlling your voice is important to avoid strange sounds on recording (25:31)
+- If the goal is to signify one thing, the popout principle can be used - but mostly it works on only one channel at a time (red & blue, squares & circles).
+- Eyes beat memory. Carefully pick when to use animation (requires remembering what happened in the past).
+
+
+# Task 2
+
+Choose one of them and answer following questions:
+
+[Mobile Makeover](http://www.technologyreview.com/graphiti/520491/mobile-makeover/)
+
+- What is the key message for the chart?
+
+Key message was to show that mobile devices and services are on the rise and will continue rising.
+
+- Is it easy to grasp?
+
+Two bottom ones were relatively easy. It would have been easier if they were completely horisontal or vertica. The artistic approach distracted the message. The largest graph comparing number of users of different devices since their launches was least obvious. The scale for quarters after launch could have been years.
+
+- Is it possible to improve it according to Tamara’s suggestions? How?
+
+Yes. Using just a bar chart for the users/time from launch graph. It was mixing too many different channels (hue, spacial, vertical-horizontal axis, 3d)
+
+
+# Task 3
+
+Read data from the file, data.txt, calculate mean and variance for every feature (column). Compute correlation between pairs of features x1 vs y1, x2 vs y2 etc. Compare results. Plot each of these pairs separately (such that x feature is on the x-axis and y feature on the y-axis). Interpret the results.
+
+![Calculations](calculations.png "Calculations")
+![Charts](charts.png "Charts")
+
+# Task 5
+
+Think of university study information system - all data about every student, grades, and dates, teachers, feedback, etc. Propose some visual report/summary that might help programme managers, head of the institutes, deans, and rector to decide about student progress in a curriculum (or comparisons in between curricula and institutes, for example). What information would need to be fitted on such a visualisation? Make an illustration of your idea (can be done on paper). Be as creative as possible.
+
+
+Reports, summaries:
+
+1. Report of students' exam results changing over multiple tries. Could show whether doing exam multiple times would make the result better.
+
+2. Exam results in morning classes vs. afternoon classes. To that could be added results of a year where the morning classes were helt in afternoon and the other way around. If there was correlation with exam results, the harder class (with average result being lower) could be moved to a time slot where people get better grades (hopefully due to better comprehension).
