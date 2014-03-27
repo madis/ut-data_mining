@@ -1,0 +1,19 @@
+% Data Mining Homework 2
+% Madis Nõmme
+% February 27th, 2014
+
+Executable solutions are available and updated at <https://github.com/madis/ut-data_mining>
+
+# Task
+
+  1. For the data from Table 1 compute the support and support count for itemsets {Aspirin}, {Tylenol, Cepacol}, {Aspirin, Ibuprofen, Panadol}.
+
+    - {:itemset=>["Aspirin"], :support_count=>5, :support=>(5/12)}
+    - {:itemset=>["Tylenol", "Cepacol"], :support_count=>4, :support=>(1/3)}
+    - {:itemset=>["Aspirin", "Ibuprofen", "Panadol"], :support_count=>1, :support=>(1/12)}
+
+  2. Compute the confidence for the following association rules: {Aspirin, Vitamin C} → {Sudafed}, {Aspirin} → {Vitamin C}, {Vitamin C} → {Aspirin}. Why the results for last two rules are different?
+
+    - {{["Aspirin", "Vitamin_C"]=>["Sudafed"]}=>0}
+    - {{["Aspirin"]=>["Vitamin_C"]}=>(1/5)}
+    - {{["Vitamin_C"]=>["Aspirin"]}=>(1/2)}
