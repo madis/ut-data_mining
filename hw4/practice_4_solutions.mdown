@@ -1,0 +1,7 @@
+% Data Mining Homework 4
+% Madis Nõmme
+% March 6th, 2014
+
+
+# 1 Task {.unnumbered}
+
