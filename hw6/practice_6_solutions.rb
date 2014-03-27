@@ -46,14 +46,13 @@ class Cluster
   def recalculate_center
     debug { puts "Calculating center for: #{self}" }
     if @members.empty?
-      @center = center
       false
     else
       new_center_x = (@members.dup << @center).inject(0.0) { |result, member| result += member.x } / (members.size + 1)
       new_center_y = (@members.dup << @center).inject(0.0) { |result, member| result += member.y } / (members.size + 1)
       debug { puts "Got new center: x = #{new_center_x} y = #{new_center_y}" }
       new_center = Point.new(new_center_x, new_center_y)
-      changed = new_center == center
+      changed = new_center != @center
       @center = new_center
       changed
     end
@@ -65,6 +64,14 @@ class Cluster
 
   def to_s
     "<Cluster center=#{@center} members=#{@members}>"
+  end
+
+  def inspect
+    to_s
+  end
+
+  def pretty
+    "Cluster:   #{self.center} \n  Members: #{self.members}"
   end
 
   def ==(other)
@@ -83,16 +90,8 @@ class KMeansClustering
   def cluster
     # http://insideintercom.io/machine-learning-way-easier-than-it-looks/
     clusters = @centers
-    clusters_stable = false
-
-    def cluster_centers_stayed_the_same?(clusters)
-      same = clusters.all? { |c| c.recalculate_center }
-      debug { puts "same? #{same}" }
-      same
-    end
 
     until cluster_centers_stayed_the_same?(clusters)
-    # 10.times do
       clusters.each(&:flush_members)
       @points.each do |point|
         closest_cluster = @distance.call(point, clusters)
@@ -100,6 +99,16 @@ class KMeansClustering
       end
     end
     clusters
+  end
+
+  private
+
+  def cluster_centers_stayed_the_same?(clusters)
+    # Recalculate returns true when center changed so checking here that it
+    # was not true for any of the clusters meaning that none whas changed.
+    changed = clusters.none? { |c| c.recalculate_center }
+    debug { puts "same? #{same}" }
+    !changed
   end
 end
 
@@ -122,5 +131,26 @@ clusters = KMeansClustering.new(data_points.values, initial_clusters, finds_clos
 
 elements_in_clusters = clusters.inject(0) { |sum, c| sum += c.members.count }
 clusters.each do |cluster|
-  puts "Cluster:   #{cluster.center} \n  Members: #{cluster.members}"
+  puts cluster.pretty
+end
+
+def random_float
+  rand(-10..10) + rand(0..9) * 0.1
+end
+
+# Searching for other initial centers that would produce different results
+different_clustering_results = {}
+until different_clustering_results.size >= 3
+  random_starting_centers = 3.times.map {|n| Cluster.with_center(random_float, random_float)}
+  new_clustering = KMeansClustering.new(data_points.values, random_starting_centers, finds_closest_by_minimum_eucledian_distance).cluster
+  if new_clustering != clusters
+    different_clustering_results[random_starting_centers] = new_clustering
+  end
+end
+
+puts "Task 2\n--------"
+puts "Got 3 new clusterings that are different from the original:"
+different_clustering_results.each do |start, clusters|
+  puts "Starting: #{start}"
+  clusters.each {|c| puts c.pretty}
 end
