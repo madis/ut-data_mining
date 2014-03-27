@@ -26,27 +26,26 @@ class Task1 < SimpleTask
   end
 
   def question
-    parts = {
-      a: "For the data from Table 1 compute the support and support count for itemsets {Aspirin}, {Tylenol, Cepacol}, {Aspirin, Ibuprofen, Panadol}.",
-      b: "Compute the confidence for the following association rules: {Aspirin, Vitamin C} → {Sudafed}, {Aspirin} → {Vitamin C}, {Vitamin C} → {Aspirin}. Why the results for last two rules are different?",
-      c: "List all the frequent itemsets if the support count threshold smin = 3.",
-      d: "What does the anti-monotonicity property of support imply? Give anexample using the above data set."
-    }
-    parts.values.reduce {|s, t| s + "\n" + t }
+    "Wut?"
   end
 
   def answer
-    a + b
+    part_a + part_b
   end
 
-  def a
+  # For the data from Table 1 compute the support and support count for
+  # itemsets {Aspirin}, {Tylenol, Cepacol}, {Aspirin, Ibuprofen, Panadol}.
+  def part_a
     itemsets = [%w{Aspirin}, %w{Tylenol Cepacol}, %w{Aspirin Ibuprofen Panadol}]
     itemsets.map do |itemset|
       find_support itemset
     end
   end
 
-  def b
+  # Compute the confidence for the following association rules: {Aspirin,
+  # Vitamin C} → {Sudafed}, {Aspirin} → {Vitamin C}, {Vitamin C} → {Aspirin}.
+  # Why the results for last two rules are different?
+  def part_b
     association_rules = {
       %w{Aspirin Vitamin_C} =>  %w{Sudafed},
       %w{Aspirin} => %w{Vitamin_C},
@@ -59,6 +58,16 @@ class Task1 < SimpleTask
         {from => to} => rule_support[:support] / from_support[:support]
       }
     end
+  end
+
+  # List all the frequent itemsets if the support count threshold smin = 3.
+  def part_c
+    support
+  end
+
+  # What does the anti-monotonicity property of support imply? Give anexample
+  # using the above data set.
+  def part_d
   end
 
   private
