@@ -1,83 +1,10 @@
 #!/usr/bin/env ruby
-require 'forwardable'
+require_relative '../lib/point'
+require_relative '../lib/cluster'
 
 DEBUGGING_ENABLED = false
 def debug
   yield if DEBUGGING_ENABLED
-end
-
-class Point < Struct.new(:x, :y)
-
-  def distance(other_point)
-    Math.sqrt( (x - other_point.x)**2 + (y - other_point.y)**2)
-  end
-
-  def ==(other)
-    return false unless other.respond_to?(:x) && other.respond_to?(:y)
-    x == other.x && y == other.y
-  end
-
-  def to_s
-    "(#{x},#{y})"
-  end
-
-  def inspect
-    to_s
-  end
-end
-
-class Cluster
-  extend Forwardable
-  def_delegators :@center, :x, :y
-  def_delegator :@members, :<<
-  attr_reader :center, :members
-
-  def self.with_center(x, y)
-    new(Point.new(x, y))
-  end
-
-  def initialize(center_point)
-    @center = center_point
-    @members = []
-  end
-
-  # Recalculates center based on members.
-  # Returns true if center changed, false if center stayed the same
-  def recalculate_center
-    debug { puts "Calculating center for: #{self}" }
-    if @members.empty?
-      false
-    else
-      new_center_x = (@members.dup << @center).inject(0.0) { |result, member| result += member.x } / (members.size + 1)
-      new_center_y = (@members.dup << @center).inject(0.0) { |result, member| result += member.y } / (members.size + 1)
-      debug { puts "Got new center: x = #{new_center_x} y = #{new_center_y}" }
-      new_center = Point.new(new_center_x, new_center_y)
-      changed = new_center != @center
-      @center = new_center
-      changed
-    end
-  end
-
-  def flush_members
-    @members = []
-  end
-
-  def to_s
-    "<Cluster center=#{@center} members=#{@members}>"
-  end
-
-  def inspect
-    to_s
-  end
-
-  def pretty
-    "Cluster:   #{self.center} \n  Members: #{self.members}"
-  end
-
-  def ==(other)
-    return false unless other.respond_to?(:center) && other.respond_to?(:members)
-    center == other.center && members == other.members
-  end
 end
 
 class KMeansClustering

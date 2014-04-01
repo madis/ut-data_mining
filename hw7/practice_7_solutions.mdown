@@ -1,0 +1,41 @@
+% Data Mining Homework 7
+% Madis Nõmme
+% April 3rd, 2014
+
+# DBSCAN vs K-means
+
+## K-means
+
+![Example of DBSCAN cons](DBSCAN-bad.png)
+![Example of K-means pros](Kmeans-good.png)
+
+![Example of DBSCAN pros](DBSCAN-good.png)
+![Example of K-means cons](Kmeans-bad.png)
+
+
+### Pros
+
+1. Easy to understand and implement
+2. Fast
+
+### Cons
+
+1. Can't find arbitrary shaped clusters
+2. One has to know the number of clusters
+3. Choosing initial cluster centers affects results
+
+### DBSCAN
+
+### Pros
+
+1. No need to know cluster centers
+
+
+### Cons
+
+1. Can't find clusters with highly varying density
+2. Requires
+
+
+# Applying DBSCAN
+

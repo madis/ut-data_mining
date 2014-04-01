@@ -1,0 +1,8 @@
+First goal: encapsulate calculations so they are well documented and repeatable.
+Then: enhance with outputting so simple way to produce markdown or latex can be achieved (with question text).
+
+HW1.print(:task_1, :part_a)
+HW1.print
+  task1 = HW1::Task1.new
+  task1.solution
+    -> part_a, part_b, part_c, part_d
