@@ -79,5 +79,5 @@ puts "Task 2\n--------"
 puts "Got 3 new clusterings that are different from the original:"
 different_clustering_results.each do |start, clusters|
   puts "Starting: #{start}"
-  clusters.each {|c| puts c.pretty}
+  clusters.each { |c| puts c.pretty }
 end

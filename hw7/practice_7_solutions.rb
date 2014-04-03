@@ -116,7 +116,6 @@ class Dbscan
       cluster << neighbour if not_member_of_any_cluster?(neighbour, clusters)
     end
   end
-
 end
 
 puts "Clusters: "

@@ -30,7 +30,6 @@
 
 1. No need to know cluster centers
 
-
 ### Cons
 
 1. Can't find clusters with highly varying density
@@ -38,4 +37,20 @@
 
 
 # Applying DBSCAN
+
+[Implemented algorithm in Ruby](https://github.com/madis/ut-data_mining/blob/master/hw7/practice_7_solutions.rb#L70). It's a bit buggy. Questions for practice session:
+
+  - should the clusters be re-used or always created new ones?
+  - should points be re-considered for other clusters after already assigning them to some cluster?
+
+1. Noise:
+2. Border:
+3. Core points:
+
+# Self organizing maps for pixel data
+
+# Comparing Self-organizing maps with k-means and DBSCAN
+
+
+
 
