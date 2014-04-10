@@ -49,6 +49,18 @@
 
 # Self organizing maps for pixel data
 
+One-way seriation: only swap rows
+Two-way seriation: swap rows & columns
+
+Do one-way seriation: define a goodness function, calculate current goodness (for the rows), re-order using some method (sorting, random, cluster), re-calulate goodness, if went better, re-apply.
+
+*shuffled.txt* contains array of triplets. Triplet contains 3 values 0-255 of rgb.
+
+```
+rev0
+ (0 0 0) (0 0 0) (0 0 0) etc.
+```
+
 # Comparing Self-organizing maps with k-means and DBSCAN
 
 

@@ -80,6 +80,8 @@ class Dbscan
     @points.each do |point|
       point.visited = true
       neighbours = find_neighbours(point)
+      # Neighbourhood contains the point itself
+      neighbours << point
       if neighbours.size < MIN_POINTS
         point.noise = true
       else
