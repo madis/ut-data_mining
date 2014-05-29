@@ -1,0 +1,17 @@
+% Data Mining Homework 8
+% Madis Nõmme
+% April 8th, 2014
+
+# Task
+
+## With Bayes classifier
+
+
+
+## With Naive Bayes
+
+## Questions
+
+1. Which prediction is correct? - 
+2. Why? - 
+3. What properties of the Naive Bayes classifier are involved? - 

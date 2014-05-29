@@ -1,0 +1,10 @@
+Exercise like the 1st one  can be on the at the exam (perform Bayesian classifier or ID3)
+
+P)y*x= ')P)y=
+
+posterior = (prior * (?)) / j
+
+Naive Bayes doesn't calculate (riääliti)
+
+Read about exam in Mordor (Tretjakovi blogi) - Machine learning in Mordor
+  - send to kostja & dimitri - worth 2 points

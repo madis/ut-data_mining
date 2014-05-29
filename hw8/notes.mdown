@@ -1,0 +1,4 @@
+Point (0.2, 0.2) on ROC curve means that you get
+TP as TP, same time you get very low false positive right
+
+True positive False positives on the axis
